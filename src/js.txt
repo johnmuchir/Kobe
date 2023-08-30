@@ -1,0 +1,237 @@
+alert('hey');
+window.addEventListener("DOMContentLoaded", function() {
+    var showProfileBtn = document.getElementById("show-profile");
+    var profileOverlay = document.getElementById("profile-overlay");
+    var closeProfileBtn = document.getElementById("close-profile");
+    var enterDataBtn = document.getElementById("enter-data");
+
+    showProfileBtn.addEventListener("click", function() {
+        // Display the profile overlay
+        profileOverlay.style.display = "flex";
+    });
+
+    closeProfileBtn.addEventListener("click", function() {
+        // Hide the profile overlay
+        profileOverlay.style.display = "none";
+    });
+
+    enterDataBtn.addEventListener("click", function() {
+        // Retrieve the entered data
+        var name = document.getElementById("name").value;
+        var occupation = document.getElementById("occupation").value;
+        var location = document.getElementById("location").value;
+        
+        // Check if all data is entered
+        if (name && occupation && location) {
+            // Log the entered data
+            console.log("Entered Data:");
+            console.log("Name:", name);
+            console.log("Occupation:", occupation);
+            console.log("Location:", location);
+
+            // Display profile creation message
+            displayMessage("Profile Created");
+        } else {
+            // Display error message if any data is missing
+            displayMessage("Please enter all data");
+        }
+    });
+    function displayMessage(message) {
+        var messageElement = document.getElementById("message");
+        messageElement.textContent = message;
+        messageElement.style.display = "block";
+
+        // Hide the message after 3 seconds
+        setTimeout(function() {
+            messageElement.style.display = "none";
+        }, 3000);
+
+    }
+});
+
+//             SIDEBAR       LEFT
+const menuItems = document.querySelectorAll('.menu-item');
+
+//    REMOVE ACTIVE CLASS MENU ITEMS
+const changeActiveItem = () => {
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+    })
+}
+
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        changeActiveItem();
+        item.classList.add('active');       
+    })
+})
+
+//        FOLLOW  BTN    MIDDLE
+var followButton = document.getElementById("follow-btn");
+var followMessage = document.getElementById("follow-message");
+
+followButton.addEventListener("click", function() {
+  if (followButton.textContent === "Follow") {
+    followButton.textContent = "Following";
+  } else {
+    followButton.textContent = "Follow";
+    followMessage.textContent = "";
+  }
+});
+
+//         COMMENTS  POPUP    FEEEDS    MIDDLE
+const commentsButton = document.getElementById('commentsButton');
+const commentsOverlay = document.getElementById('commentsOverlay');
+const commentInput = document.getElementById('commentInput');
+const commentsList = document.getElementById('commentsList');
+const submitComment = document.getElementById('submitComment');
+const closeOverlay = document.getElementById('closeOverlay');
+
+// Sample data - you can replace this with real data from a server or database
+let sampleComments = [
+  
+];
+
+// Function to show the comments overlay
+function showCommentsOverlay() {
+  commentsOverlay.style.display = 'block';
+  renderComments();
+}
+
+// Function to close the comments overlay
+function closeCommentsOverlay() {
+  commentsOverlay.style.display = 'none';
+}
+
+// Function to render the comments in the overlay
+function renderComments() {
+  commentsList.innerHTML = '';
+  sampleComments.forEach((comment, index) => {
+    const li = document.createElement('li');
+    li.classList.add('commentItem');
+    li.textContent = comment;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('deleteButton');
+    deleteButton.addEventListener('click', () => deleteComment(index));
+
+    li.appendChild(deleteButton);
+    commentsList.appendChild(li);
+  });
+}
+
+// Function to add a new comment
+function addComment() {
+  const newComment = commentInput.value.trim();
+  if (newComment !== '') {
+    sampleComments.push(newComment);
+    commentInput.value = '';
+    renderComments();
+  }
+}
+
+// Function to delete a comment
+function deleteComment(index) {
+  sampleComments.splice(index, 1);
+  renderComments();
+}
+
+// Event listeners
+commentsButton.addEventListener('click', showCommentsOverlay);
+closeOverlay.addEventListener('click', closeCommentsOverlay);
+submitComment.addEventListener('click', addComment);
+
+//        LIKES BUTTON  
+const likeButton = document.getElementById('likeButton');
+const likeCount = document.getElementById('likeCount');
+let likes = 0;
+let isLiked = false;
+
+function updateLikes() {
+  likeCount.textContent = `${likes} Likes`;
+}
+
+function toggleLike() {
+  isLiked = !isLiked;
+  if (isLiked) {
+    likes++;
+    likeButton.classList.add('liked');
+  } else {
+    likes--;
+    likeButton.classList.remove('liked');
+  }
+  updateLikes();
+}
+
+likeButton.addEventListener('click', toggleLike);
+
+//        SHARE BUTTON
+const shareButton = document.getElementById('shareButton');
+
+function shareContent() {
+  const title = 'Title of the shared content';
+  const text = 'Text to be shared along with the link';
+  const url = 'https://example.com'; // Replace this with your content's URL
+
+  if (navigator.share) {
+    navigator.share({
+      title: title,
+      text: text,
+      url: url,
+    })
+    .then(() => console.log('Shared successfully!'))
+    .catch((error) => console.error('Error sharing:', error));
+  } else {
+    console.log('Share API not supported in this browser.');
+    // Implement fallback behavior for browsers that do not support the Share API.
+    // For example, open a custom sharing popup or redirect users to the share URL.
+  }
+}
+
+shareButton.addEventListener('click', shareContent);
+
+//        SEARCH BY PROFILE  RIGHT
+// Sample profile data
+const profiles = [
+    { name: "John Doe", occupation: "Engineer", location: "New York" },
+    { name: "Jane Smith", occupation: "Designer", location: "London" },
+    { name: "Alex Johnson", occupation: "Developer", location: "Paris" },
+    { name: "Emily Davis", occupation: "Teacher", location: "San Francisco" },
+];
+  
+  // Function to perform the search
+function searchProfiles() {
+    const searchInput = document.getElementById("searchInput");
+    const searchValue = searchInput.value.toLowerCase();
+    const searchResults = document.getElementById("searchResults");
+  
+    // Clear previous results
+    searchResults.innerHTML = "";
+  
+    // Filter profiles based on search value
+    const matchedProfiles = profiles.filter((profile) =>
+      profile.name.toLowerCase().includes(searchValue) ||
+      profile.occupation.toLowerCase().includes(searchValue) ||
+      profile.location.toLowerCase().includes(searchValue)
+    );
+  
+    // Display matched results
+    if (matchedProfiles.length > 0) {
+      matchedProfiles.forEach((profile) => {
+        const resultElement = document.createElement("div");
+        resultElement.textContent = `Name: ${profile.name}, Occupation: ${profile.occupation}, Location: ${profile.location}`;
+        searchResults.appendChild(resultElement);
+      });
+    } else {
+      const noMatchElement = document.createElement("div");
+      noMatchElement.textContent = "No matching profiles found.";
+      searchResults.appendChild(noMatchElement);
+    }
+}
+  
+  // Event listener for search input
+  document.getElementById("searchInput").addEventListener("input", searchProfiles);
+  
+
+

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechineries</title>
+    <link rel="stylesheet" href="ste.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h2 class="logo">Machineries</h2>
+            <div class="search-bar">
+                <i class="bx bx-search"></i>
+                <input types="search" placeholder="Search for creators and inspiration">
+            </div>
+            <div class="create">
+                <label class="btn btn-primary" for="create-post">Create</label>
+                <div class="profile-photo">
+                    <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--MAIN-->
+    <main>
+        <div class="container">
+            <!--LEFT-->
+            <div class="left">
+                <a class="left-profile">
+                    <div class="profile-photo">
+
+                        <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                    </div>
+                    <div class="handle">
+                        <h4>Joh John</h4>
+                        <p class="text-muted"> 
+                            @johjohn
+                        </p>
+                    </div>
+                </a>
+                <!--CREATE PROFILE-->
+                <button id="show-profile">Create Profile</button>
+                <div class="show-profile">
+                    <div id="profile-overlay" class="overlay">
+                        <div class="profile-container">
+                            <div class="profile-info">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name">
+                            </div>
+                            <div class="profile-info">
+                                <label for="occupation">Occupation:</label>
+                                <input type="text" id="occupation">
+                            </div>
+                            <div class="profile-info">
+                                <label for="location">Location:</label>
+                                <input type="text" id="location">
+                            </div>
+                            <button id="enter-data">Enter</button>
+                            <div id="message"></div>
+                            <button id="close-profile">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <!--SIDEBAR-->
+                <div class="sidebar">
+                    <a class="menu-item active">
+                        <span><i class="bx bx-home"></i></span><h3>Home</h3>
+                    </a>
+                    <a class="menu-item">
+                        <span><i class="bx bx-search"></i></span><h3>Search</h3>
+                    </a>
+                    <a class="menu-item" id="notifications-popup">
+                        <span><i class="bx bx-notification"><small class="notifications-count">9+</small></i></span><h3>NOTIFICATION</h3>
+                        <!--NOTIFICATION POPUP-->
+                        <div class="notifications-popup">
+                            <div class="profile-photo">
+                                <img src="images/jpg">
+                            </div>
+                            <div class="notifications-body">
+                                <b>jeh bsg</b> minds business
+                                <small class="text-muted">2 fridays</small>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="menu-item" id="message-notification">
+                        <span><i class="bx bx-message"><small class="notifications-count">6+</small></i></span><h3>MESSAGE</h3>
+                    </a>
+                    <a class="menu-item">
+                        <span><i class="bx bx-bookmark"></i></span><h3>BOOKMARKS</h3>
+                    </a>
+                    
+                </div>
+                <!--END OF SIDEBAR-->
+                <label for="create-post" class="btn btn-primary">Create Post</label>
+            </div>
+            <!--END OF LEFT-->
+            <!--MIDDLE-->
+            <div class="middle">
+                <form class="create-post">
+                    <div class="profile-photo">
+                        <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                    </div>
+                    <input type="text" placeholder="whats in your mind" id="create-post">
+                    <input type="submit" value="post" class="btn btn-primary">
+                </form>
+                <!--FEEDS-->
+                <div class="feeds">
+                    <!--FEED 1-->
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-photo">
+                                    <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                                </div>
+                                <div class="info">
+                                    <h3>JOH JOHN</h3>
+                                    <small>Kenya is country 15 minutes ago</small>
+                                </div>
+                            </div>
+                            <div class="follow-button">
+                                <button id="follow-btn">Follow</button>
+                                <span id="follow-message"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="photo">
+                            <img src="C:\Users\lenovo\Downloads\FB_IMG_1660692676095.jpg">
+                        </div>
+
+                        <div class="action-buttons">
+                            <div class="interaction-buttons">
+                                <span><i class="bx bx-heart" id="likeButton"></i></span>
+                                <span><i class="bx bx-comment-dots" id="commentsButton"></i></span>
+                                <span><i class="bx bx-share-alt" id="shareButton"></i></span>
+                            </div>
+                        </div>
+                        <!--COMMENTS OVERLAY-->
+                        <div id="commentsOverlay">
+                            <div class="commentsContainer">
+                                <h2>Comments</h2>
+                                <ul id="commentsList">
+                                    <!-- Comments will be dynamically added here -->
+                                </ul>
+                                <ul id="commentsList">
+                                    <!-- Comments with delete buttons will be dynamically added here -->
+                                </ul>
+                                <textarea id="commentInput" placeholder="Type your comment here..."></textarea>
+                                <button id="submitComment">Submit</button>
+                                <button id="closeOverlay">Close</button>
+                                
+                            </div>
+                        </div>
+                        <!--LIKES BUTTON-->
+                        <div class="likes-container">
+                            <div id="likeCount" class="like-count">0 Likes</div>
+                        </div>
+                    </div>
+                    <!--END OF FEED-->
+                    <!--FEED 2-->
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-photo">
+                                    <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                                </div>
+                                <div class="info">
+                                    <h3>David G</h3>
+                                    <small>Dubai is country 15 minutes ago</small>
+                                </div>
+                            </div>
+                            <div class="follow-button">
+                                <button id="follow-btn">Follow</button>
+                                <span id="follow-message"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="photo">
+                            <img src="C:\Users\lenovo\Downloads\10802042_1025862594106959_4635175637831952907_n.jpg">
+                        </div>
+
+                        <div class="action-buttons">
+                            <div class="interaction-buttons">
+                                <span><i class="bx bx-heart" id="likeButton"></i></span>
+                                <span><i class="bx bx-comment-dots" id="commentsButton"></i></span>
+                                <span><i class="bx bx-share-alt" id="shareButton"></i></span>
+                            </div>
+                        </div>
+                        <!--COMMENTS OVERLAY-->
+                        <div id="commentsOverlay">
+                            <div class="commentsContainer">
+                                <h2>Comments</h2>
+                                <ul id="commentsList">
+                                    <!-- Comments will be dynamically added here -->
+                                </ul>
+                                <ul id="commentsList">
+                                    <!-- Comments with delete buttons will be dynamically added here -->
+                                </ul>
+                                <textarea id="commentInput" placeholder="Type your comment here..."></textarea>
+                                <button id="submitComment">Submit</button>
+                                <button id="closeOverlay">Close</button>
+                                
+                            </div>
+                        </div>
+                        <!--LIKES BUTTON-->
+                        <div class="likes-container">
+                            <div id="likeCount" class="like-count">0 Likes</div>
+                        </div>
+                    </div>
+                    <!--END OF FEED-->
+                    <!--FEED 3-->
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-photo">
+                                    <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                                </div>
+                                <div class="info">
+                                    <h3>Joe M</h3>
+                                    <small>From the lakeview</small>
+                                </div>
+                            </div>
+                            <div class="follow-button">
+                                <button id="follow-btn">Follow</button>
+                                <span id="follow-message"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="photo">
+                            <img src="C:\Users\lenovo\Downloads\12109316_1294684827224733_5291798682011622708_n.jpg">
+                        </div>
+
+                        <div class="action-buttons">
+                            <div class="interaction-buttons">
+                                <span><i class="bx bx-heart" id="likeButton"></i></span>
+                                <span><i class="bx bx-comment-dots" id="commentsButton"></i></span>
+                                <span><i class="bx bx-share-alt" id="shareButton"></i></span>
+                            </div>
+                        </div>
+                        <!--COMMENTS OVERLAY-->
+                        <div id="commentsOverlay">
+                            <div class="commentsContainer">
+                                <h2>Comments</h2>
+                                <ul id="commentsList">
+                                    <!-- Comments will be dynamically added here -->
+                                </ul>
+                                <ul id="commentsList">
+                                    <!-- Comments with delete buttons will be dynamically added here -->
+                                </ul>
+                                <textarea id="commentInput" placeholder="Type your comment here..."></textarea>
+                                <button id="submitComment">Submit</button>
+                                <button id="closeOverlay">Close</button>
+                                
+                            </div>
+                        </div>
+                        <!--LIKES BUTTON-->
+                        <div class="likes-container">
+                            <div id="likeCount" class="like-count">0 Likes</div>
+                        </div>
+                    </div>
+                    <!--END OF FEED-->
+                    <!--FEED 4-->
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-photo">
+                                    <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                                </div>
+                                <div class="info">
+                                    <h3>John M</h3>
+                                    <small>Very busy</small>
+                                </div>
+                            </div>
+                            <div class="follow-button">
+                                <button id="follow-btn">Follow</button>
+                                <span id="follow-message"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="photo">
+                            <img src="C:\Users\lenovo\Downloads\11050752_1220760781283805_3472658983782453180_n.jpg">
+                        </div>
+
+                        <div class="action-buttons">
+                            <div class="interaction-buttons">
+                                <span><i class="bx bx-heart" id="likeButton"></i></span>
+                                <span><i class="bx bx-comment-dots" id="commentsButton"></i></span>
+                                <span><i class="bx bx-share-alt" id="shareButton"></i></span>
+                            </div>
+                        </div>
+                        <!--COMMENTS OVERLAY-->
+                        <div id="commentsOverlay">
+                            <div class="commentsContainer">
+                                <h2>Comments</h2>
+                                <ul id="commentsList">
+                                    <!-- Comments will be dynamically added here -->
+                                </ul>
+                                <ul id="commentsList">
+                                    <!-- Comments with delete buttons will be dynamically added here -->
+                                </ul>
+                                <textarea id="commentInput" placeholder="Type your comment here..."></textarea>
+                                <button id="submitComment">Submit</button>
+                                <button id="closeOverlay">Close</button>
+                                
+                            </div>
+                        </div>
+                        <!--LIKES BUTTON-->
+                        <div class="likes-container">
+                            <div id="likeCount" class="like-count">0 Likes</div>
+                        </div>
+                    </div>
+                    <!--END OF FEED-->
+                    <!--FEED 5-->
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-photo">
+                                    <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                                </div>
+                                <div class="info">
+                                    <h3>J Alex</h3>
+                                    <small>Feeling motivated</small>
+                                </div>
+                            </div>
+                            <div class="follow-button">
+                                <button id="follow-btn">Follow</button>
+                                <span id="follow-message"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="photo">
+                            <img src="C:\Users\lenovo\Downloads\plumber-ge58617288_1920.jpg">
+                        </div>
+
+                        <div class="action-buttons">
+                            <div class="interaction-buttons">
+                                <span><i class="bx bx-heart" id="likeButton"></i></span>
+                                <span><i class="bx bx-comment-dots" id="commentsButton"></i></span>
+                                <span><i class="bx bx-share-alt" id="shareButton"></i></span>
+                            </div>
+                        </div>
+                        <!--COMMENTS OVERLAY-->
+                        <div id="commentsOverlay">
+                            <div class="commentsContainer">
+                                <h2>Comments</h2>
+                                <ul id="commentsList">
+                                    <!-- Comments will be dynamically added here -->
+                                </ul>
+                                <ul id="commentsList">
+                                    <!-- Comments with delete buttons will be dynamically added here -->
+                                </ul>
+                                <textarea id="commentInput" placeholder="Type your comment here..."></textarea>
+                                <button id="submitComment">Submit</button>
+                                <button id="closeOverlay">Close</button>
+                                
+                            </div>
+                        </div>
+                        <!--LIKES BUTTON-->
+                        <div class="likes-container">
+                            <div id="likeCount" class="like-count">0 Likes</div>
+                        </div>
+                    </div>
+                    <!--END OF FEED-->
+                </div>
+                <!--END OF FEEDS-->
+            </div>
+            <!--RIGHT-->
+            <div class="right">
+                <div class="messages">
+                    <div class="heading">
+                        <h4>Services</h4><i class="bx bx-edit"></i>
+                    </div>
+                    <!--SEARCH BAR-->
+                    <div class="search-bar">
+                        <i class="bx bx-search"></i>
+                        <input types="text" id="searchInput" placeholder="Search by name, occupation, or location">
+                    </div>
+                    <!--MESSAGES CATEGORY-->
+                    <div class="category">
+                        <div id="searchResults"></div>
+                    </div>
+                    <!--MESSAGE-->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="C:\Users\lenovo\Downloads\10802042_1025862594106959_4635175637831952907_n.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>David G</h5>
+                            <h6>Truck Driver</h6>
+                            <p class="text-muted">The pursuit of excellence should be ingrained in the services we offer.</p>
+                        </div>
+                       
+                    </div>  
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="C:\Users\lenovo\Downloads\13782005_1515438178482729_721495364201511521_n.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>Joe M</h5>
+                            <h6>Operator</h6>
+                            <p class="text-muted">The core of any meaningful service is the ability to empathize with the struggles and aspirations of our clients</p>
+                        </div>
+                       
+                    </div>  
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="C:\Users\lenovo\Downloads\11050752_1220760781283805_3472658983782453180_n.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>John M</h5>
+                            <h6>Mechanic</h6>
+                            <p class="text-muted"> It's not merely about showcasing what services we offer, but rather about understanding the needs of those we serve and empathizing with their challenges.</p>
+                        </div>
+                       
+                    </div>  
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="C:\Users\lenovo\Downloads\11826009_1289730907720125_1982236726127393172_n.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>J Alex</h5>
+                            <h6>Plumber</h6>
+                            <p class="text-muted"> It means continuously striving to improve, staying up-to-date with the latest developments in our field, and ensuring that our clients receive the highest quality service possible.</p>
+                        </div>
+                       
+                    </div>  
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="C:\Users\lenovo\Downloads\10802042_1025862594106959_4635175637831952907_n.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>G Richard</h5>
+                            <h6>Driver</h6>
+                            <p class="text-muted">Through our services, we aim to create positive, lasting change in the lives of those we serve, helping them to overcome challenges and realize their full potential.</p>
+                        </div>
+                       
+                    </div>  
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <script src="js"></script>
+</body>
+</html>
